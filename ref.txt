@@ -1,0 +1,1578 @@
+
+10 - 11.15 / 11.30  - Session 1         - introduce new concepts
+
+11.45 - 1.00        - Session 2         - continued discussions / demos on the topic of the day 
+
+2.00 to 04.00       - session 3         - assignments / demos / self-study / practice / read 
+
+4.00 to 06.00       - session 4         - q&a, project work
+
+
+
+VM - 
+Environment Setup 
+---------------------
+    - java 12
+    - spring tool suite
+    - node 
+    - VS Code 
+    - mysql community edition + mysql workbench (root)
+    - docker 
+
+
+Language                        Library                             Framework 
+
+Java                            standard libraries                  Spring Framework
+                                i.e. lang, io, jdbc, etc.
+                                log4j, gson, junit, 
+
+
+Python                          NumPy, Pandas                       Django, Flask
+
+C/C++                           stdio.h, conio.h                    ...
+
+JavaScript / TypeScript         JQuery, React                       NextJS, Angular, NuxtJS, NestJS
+
+GoLang                          ----
+
+C#/VB                           ---
+
+    |                               |                                   |
+programming                     Simply the tasks                    standardise the process 
+capabilities     
+
+
+
+NodeJS
+    - execution env for js code 
+
+
+Testing tools / libraries 
+
+Package managers / Build tools
+    - maven
+    - gradle 
+
+CICD tools 
+    - jenkins 
+
+VCS Tools 
+    - git 
+    - gitlab 
+
+
+
+
+Java 
+----------
+
+    .java ----> java compiler -----------------------> .class 
+                converts your javacode into ByteCode
+
+
+    - ByteCode is understandable only to JVM
+
+    JVM - Java Virtual Machine 
+        - responsible to execute the bytecode on the given platform 
+
+    JRE - Java Runtime Environment
+        - JVM + standard libraries 
+
+    JDK - Java Development Kit 
+        - JRE + development tools i.e. javac, jar, etc. 
+
+
+========================
+Explore: 1. JVM Architecture 
+            - Class Loader in JVM 
+                    - loading, linking, initialization 
+            - execution engine 
+
+         2. Garbadge Collection 
+            https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html#t2
+
+         3. Naming Conventions 
+            https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html
+
+        4. Data types, operators in java 
+
+========================
+
+
+    Java is a object oriented programming language 
+
+
+
+
+    - Variables in java 
+        - store values 
+
+        1. Local Variables 
+                - declared inside a method, constructor  
+                - don't have default values, must be initialized before its use 
+                - memory for all the local variables will be allocated when the method is invoked, and the detroyed when the method finishes its execution 
+
+
+        2. Instance Variables 
+                - declared inside a class, (outside methods)
+                - whenever a new object is created (using 'new' keyword), memory for all the instance 
+                    variables will be allocated, destroyed when the object is deleted 
+                - instance variables have default values 
+                    - i.e. for numbers = 0
+                        for booleans = false 
+                        for reference types = null 
+                - we can use the access modifiers i.e. public, private, protected, default 
+
+                        - defualt - the members will be accessible anywhere within the same 'package'
+                        - public - accessible everywhere 
+                        - private - accessible only within the class 
+                        - protected - accessible only within the class and the subclass 
+
+        3. Static Variables 
+                - declared inside a class, using the 'static' keyword
+                - only 1 copy of static variable will be allocated per class 
+                - when the class is loaded, memory for static variables will be allocated 
+                - define the accessiblity using the modifiers i.e. public, private, protected 
+
+
+Garbadge Collection 
+    - removes the unreferenced objects from the memory 
+
+
+    static keyword 
+        - static variables 
+
+        - static methods 
+
+        - static class 
+
+    final keyword 
+        - final variables
+            - a final variable is constant variables, once the value is assigned you cannot change it  
+
+        - final methods 
+            - a final method cannot be overridden in its subclass 
+
+        - final class 
+            - a final class cannot be subclassed 
+
+
+    Java Keyboard inputs 
+    ------------------------
+
+            1. using Scanner class 
+
+            2. using IO classes 
+
+            3. using Console class 
+
+
+
+    Data types 
+    ----------------
+        primitive data types 
+            - hold / represent values directly 
+
+                byte        1 byte              -128 to 127
+
+                short       2 bytes             ..
+
+                int         4 bytes             ..
+
+                long        8 bytes 
+
+                float       4 bytes 
+
+                double      8 bytes 
+
+                char        1 byte 
+
+                boolean     1 bit
+
+        Refernece types 
+            - all the class, interface, enums type variables are called reference types 
+            - stores ref to the memory 
+
+                String str; 
+                Employee employee;
+
+
+        Wrapper classes 
+        --------------------
+            - for each primitive type i.e. int, char etc. there is a corresponding reference type available i.e. Integer, Character 
+
+
+                    byte                Byte 
+                    short               Short 
+                    int                 Integer 
+                    long                Long 
+                    float               Float 
+                    double              Double 
+                    char                Character 
+                    boolean             Boolean 
+
+            - wrapper classes provide various methods to perform typecasting, and a few operations 
+
+
+
+
+
+    Common terms 
+    -------------------------------------------
+
+        POJO - plain old java object 
+            - ordinary java classes 
+            - simple class 
+            - a class that doesn't 
+                - extend to any other class 
+                - contain any annotations 
+                - implement any interface 
+
+
+                public class Employee {
+
+                }
+
+        Java Beans 
+            - it is special pojo class that has below requirements 
+                - implements serializable 
+                - all properties / instance variables are defined as private 
+                - public getter/setter methods 
+                - has a no-arg constructor 
+
+            public class Employee implements serializable {
+
+            }
+
+        VO - value object 
+
+
+        BO - Business object 
+            - classes that represent business entities 
+
+        SO - Service object 
+            - classes represents code to perform some business operations 
+            - business logic 
+
+        DAO - Data access object    
+            - classes represents code to perform db operations 
+            - 
+
+        DTO - Data transfer object 
+            - used to represent the structure of data usually exchanged between client-servers 
+
+
+        
+
+
+        Spring Beans 
+
+
+   ------------------------------------------- 
+
+
+
+    Control statements 
+        - if 
+
+            if(boolean_expression){
+
+            }
+
+        - if - else 
+
+            if(boolean_expression1){
+                
+            }else {
+
+            }
+
+            
+
+        - if - else if - else 
+
+            if(boolean_expression){
+                
+            }else if(boolean_expression2){
+
+            }
+            ..
+            ..
+            ..
+            else {
+
+            }
+
+
+        - switch case statement 
+
+            switch(expression){     //expression that evaluates to byte, short, int, char, or string 
+
+                case constant1: 
+                    statements;
+                    statements;
+                    break;
+
+                case constant2: 
+                    statements;
+                    statements;
+                    break;
+
+                case constant3:
+                    statements;
+                    statements;
+                    break;
+                ..
+
+                ..
+
+                default :
+                    statements;
+                    statements;
+                   
+            }
+
+
+    Looping statements 
+        - while 
+        - do while 
+        - for 
+        - enhanced for loop 
+
+     
+
+
+
+    Array 
+    ---------
+        - used to store fixed number of elements 
+        - the size of array is fixed 
+        - in java Array is an object 
+
+        a. declare an array variable 
+
+                <<data-type>>[] arr-var-name;
+                int[] numbers;
+                short[] nums;
+                String[] names;
+                double 
+
+                String[] names;
+                String [] names;
+                String []names;
+                String names[];
+
+
+        b. create array object 
+
+                arr-var-name = new <data-type>[size];
+                numbers = new int[5];
+
+
+        c. initialize values 
+
+                numbers[0] = 10;
+                numbers[1] = 20;
+                numbers[2] = 30;
+
+
+        int[] numbers = new int[5];
+
+        int[] numbers = new int[] {21,54,34,54,76,45};
+
+
+
+
+      java.util.Arrays class 
+      -----------------------------
+        - This class contains various methods for manipulating arrays (such as sorting and searching). This class also contains a static factory that allows arrays to be viewed as lists.
+
+
+    Java OOPS 
+    ----------------
+
+        Encapsulation 
+            - binding data & logic together 
+
+        Abstraction 
+            - hiding the complexities from outside world 
+            - hide unnecessary details from the outside world 
+
+        Inheritance 
+            - a class can be derived from another class 
+            - the members of the parent class are inherited by the child class 
+            - reusability 
+            - maintainability 
+            - extendibility 
+
+                        class Person {
+                            String name;
+                            int age; 
+                            Date DOB; 
+                            ...
+                            //
+                            //
+
+                            //
+                        } 
+
+                        class Employee extends Person {
+                            int empId;
+                            double salary;
+                        }
+
+        Polymorphism 
+            - many forms of the same interface depending on the type of object the variable is pointint to 
+
+            
+
+                        class Car {
+                            //
+                            //
+                            //
+                            //
+                            //
+                            public void move(){
+                                //
+                            }
+                        }
+
+                        class BMWCar extends Car{
+                            //override
+                            public void move(){
+                                //child specific behavior of move method
+                            }
+                        }
+
+                        class MercedesCar extends Car {
+                            //override
+                            public void move(){
+                                //child specific behavior of move method
+                            }
+                        }
+
+
+                        Car car = null;
+
+
+
+        Class 
+        --------
+            - a class is a user defined data type 
+            - a class is a blueprint for objects 
+            - ecapsulate data and logic together 
+
+
+        Object 
+        --------
+            - an object is an instance of a class 
+            - using 'new' keyword we can create an object of a class 
+
+
+            class Customer {
+
+                //static variable 
+                //final variables 
+                //instance variables 
+
+                //constructors 
+
+                //instance methods
+
+                //abstract methods  
+            
+                //inner class 
+            }
+
+            class Product {
+
+            }
+
+            class Employee {
+
+            }
+
+
+    Constructor 
+    -------------
+        - special function / method which has the same name as the class 
+        - this function is invoked only once, whenever the object of this class is created 
+        - used to initialize values for instance members 
+        - a class can have multiple constructors, 
+            - class should have at least a no-arg constructor 
+        
+
+        this keyword 
+        --------------
+            - this() constructor 
+                - it is used to invoke another constructor whithin the same class 
+                - call this 'this()' constructor must be the first line 
+
+            - this 
+                - used to access the members of the same class 
+
+
+    ========================
+    Explore: 
+        - private constructors and its usage 
+            - https://www.baeldung.com/java-private-constructors
+
+        - factory methods in java 
+            - 
+
+        - method overloading in java 
+
+
+    ==========================
+
+
+
+
+        public class Employee {
+
+            private int empId;
+            private String name;
+
+            public Employee(){      //constructor 
+
+            }
+
+            public Employee(int id, int name){
+                this.empId = id;
+                this.name  = name;
+            }
+
+        }
+
+
+    a Proper encapsulated class / tightly encapsulated class 
+        - when a class has all instance variables defined as private 
+            and accessible through the getter/setters only 
+
+
+    Method Overloading 
+    --------------------
+        - a class can contain multiple methods with the same name but the parameteres should be diff 
+        - compile time Polymorphism / static binding 
+
+
+    Object class 
+    -------------------
+        - Object class is by default a super most class for all the classes in java 
+        - everyclass is exclusively subclass of object class 
+
+            Object class methods
+            ---------------------
+                - int hashCode()
+                - boolean equals(Object o)
+                - String toString() 
+
+
+
+
+                                Object 
+                                  |
+        ------------------------------------------------------------------------------
+        Student                 System          ArrayList           Scanner         ..
+        Employee                                LinkedList
+        CustomClass...
+
+
+    Overriding the toString() method 
+    ----------------------------------
+        - Returns a string representation of the object. In general, the toString method returns a string that "textually represents" this object.
+        - It is recommended that all subclasses override this method.
+        - whenever we use the ref variable in an expression, by default it calls the toString() on that object 
+
+    Overriding the equals() method 
+    -------------------------------------
+        - you can override equals() method to provide logic to compare two objects of same type 
+        
+
+        **equals() contract 
+
+        Student student = new Student();
+
+        Object object = new Student();        //valid
+
+
+    **a variable of parent class can reference to an object of clild class 
+
+
+
+    Inheritance 
+    -----------------
+        - allows to create a subclass, inheriting all the non-private members of the super class 
+        - using 'extends' keyword we can inherit a class from another class 
+        - inheritance creates is-a relationship 
+
+        public class Person {
+            //instance variables 
+        
+            ..
+
+            ..
+        }
+
+        public class Employee extends Person {
+
+                //...
+
+                ...
+
+                ..
+
+        }
+
+
+                    Account 
+                        - accNo 
+                        - cusotmerID 
+                        - type 
+                        - interestRate
+                        - createAcc() / debit() / credit()
+                     |
+        ----------------------------------------------------------------------------
+        SavingAcc           CurrentAcc              RecurringDepAcc         LoanAcc
+                                                                                - loanNo
+                                                                                   |
+                                                                        ---------------------------
+                                                                        PersonalLoanAcc     HomeLoanAcc     
+
+
+
+    Has-A relationship / Ojbect Relationships
+    ----------------------------
+        - objects may have relationship with each other 
+
+        a. Composition 
+
+
+        b. Aggregation 
+            
+            - the lifecycle of object is tied up 
+
+                class Engine {
+
+                }
+
+                class Car {
+
+                    Engine engine;
+                }
+
+
+        c. Association 
+
+                public class Book {                         public class Author {
+                    int bookId;                                     int authorId;
+                    String title;                                   String name;
+                    Author author;
+
+                }                                           }
+
+
+    class {
+        instance variables
+        constructor 
+        instance methods 
+        ...
+        ..
+    }
+
+
+    Interface 
+    --------------------
+        - similar to a class, but it describes only abstract methods 
+        - interface contains only 'public abstract' methods and 'public static final' variables 
+        - interfaces are used to define set of requirements that a class has to implement 
+        - a class must implement an interface and override the abstract methods
+        **- an interface can extend from several interfaces
+
+        interface <<InterfaceName>>{
+
+                public static final variables;
+
+                public abstract methods;
+
+        }
+
+        interface Taxable {
+            public abstract void calcTax(double intRate);
+        }
+
+
+        class ClothingProduct implements Taxable, AnotherInterface{
+
+            //override the abstract methods of the interface 
+            public void calcTax(double intRate){
+                //define the logic 
+            }
+        }
+
+        Taxable product = new ClothingProduct();
+
+
+        **A variable of type interface can reference to an object of its implementation class 
+
+
+    Abstract classes 
+    -------------------
+        - abstract classes are used to act just a superclass, representing data & code to be inherited to the subclasses 
+        - using 'abstract' keyword we can declare abstract class
+        - we cannot instantiate abstract classes 
+            - we cannot create object of abstract class 
+
+        - if a class has 'abstract' methods, then it must be marked as abstract
+            - the abstract methods of a class must be overridden by its immediate subclass 
+
+
+        
+
+        public abstract class Car {
+
+            //instance variables 
+            //static variables 
+
+            //constructor 
+
+            //instance methods 
+
+            public abstract void move();
+
+        }
+
+        public class BMWCar extends Car {
+
+            public BMWCar(){
+                
+            }
+
+            //override the superclass methods 
+            public void move(){
+                sysout("BMW Car moves fast")
+            }
+        }
+
+
+        public class MercedesCar extends Car {
+
+            //override the superclass methods 
+            public void move(){
+                sysout("MercedesCar moves fast and smooth");
+            }
+        }
+
+        Car car = new BMWCar();
+        car.move();
+
+        car = new MercedesCar();
+        car.move();
+
+    Method Overloading 
+    ---------------------
+        - writing multiple methods with same name but diff parameters inside the same class 
+
+
+    Method Overriding 
+    --------------------
+        - redefining a super class method in the subclass using the same method signature 
+        - it is used to define child specific behavior of the superclass method 
+        - in method overriding, the name, parameters and return type must be same
+
+
+        -Rules for method overriding 
+        --------------------------------
+            - 1. only the inherited methods (non-private) can be overridden 
+                    Note: private and static method cannot be overridden 
+
+                    public class A {
+                       public void method(){
+
+                       }
+                    }
+
+                    public class B extends A{
+
+                    }
+
+            2. the overridden method can not have restrictive access in the subclass 
+
+                    public class A {
+                       protected void method(){
+
+                       }
+                    }
+
+                    public class B extends A{
+                        public void method(){
+
+                       }
+                    }
+
+            3. the overridden method must have the exact* method signature in the subclass 
+                    Note: the return type in the overridden method can be a subtype
+
+
+    Abstract Method 
+    ----------------------
+        - a method without definition 
+        - a method declared using 'abstract' keyword 
+
+
+     ..
+
+
+   
+   
+        interface EmploeyeRepository {
+
+            public abstract void addEmployee(Employee employee);
+            
+            public abstract Employee getEmployee(int empId);
+            
+            public abstract List<Employee> getAllEmployees();
+            
+            public abstract void deleteEmployee(int empId);
+
+        }
+
+        public class EmploeyeRepositoryImpl implements EmploeyeRepository{
+
+            //must override all the methods of the interface
+            public  void addEmployee(Employee employee){
+
+            }
+
+            public  List<Employee> getAllEmployees()
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Arrays are fixed length / size group of elements 
+
+
+    Collection Framework 
+    --------------------------
+        - java.util provides various data structures called as collections
+        - Collection classes offer various DS to allow creating dynamic group of objects 
+        - collections are set of dynamic and reusable datastructures which are used to create group of objects 
+
+                    Iterable<E> interface 
+                        |
+                        |
+                    Collection<E> interface
+                         |
+                         |-> boolean add(E e)
+                         |-> boolean	addAll(Collection<? extends E> c)
+                         |-> void	clear()
+                         |-> boolean	contains(Object o)
+                         |-> boolean	remove(Object o)
+                         |
+                         |
+          ------------------------------------------------------------------------------  
+          List<E> Interface                 Set<E> Interface               Queue<E> Interface 
+             |                                  |                               |
+             |                                  |                               |-->LinkedList<E>
+          ArrayList                         HashSet                             |-->PriorityQueue<E>
+                                                                                |
+          LinkedList                        LinkedHashSet               ----------------------------------------
+          Vector                            TreeSet                     Deque<E> Interface         BlockingQueue<E> Interface
+          Stack                                                             |                                  |
+                                                                            |                           ArrayBlockingQueue<E> 
+                                                                            |
+                                                                        --------------------------------------
+                                                                       ArrayDeque<E>       BlockingDeque<E> interface 
+
+
+
+             
+
+
+
+
+   Collection<T> interface
+    - this is the supermost interface in the collection hierarchy that describes few common methods 
+    - ie.                |-> boolean add(E e)
+                         |-> boolean	addAll(Collection<? extends E> c)
+                         |-> void	clear()
+                         |-> boolean	contains(Object o)
+                         |-> boolean	remove(Object o)
+
+    List<E> Interface 
+    ------------------
+        - models an indexed collection of elements, it allows duplicate elements 
+        - List Implementation classes are ...
+            1. ArrayList<E> 
+                - internally uses "resizable array" as a datastructure 
+                - the initial capacity of arraylist is 10
+                - not synchronized
+
+            2. LinkedList<E> 
+                - internally uses "double linked list" as a datastructure 
+                - the initial capacity is 0
+                - good for lists that require freqent insertions, deletions
+
+            3. Vector<E> 
+              - internally uses resizable array as a datastructure 
+              - the initial capacity of arraylist is 10
+              - vector is synchronized, so it is thread safe
+
+            4. Stack<E>
+              - internally uses resizable array as a datastructure 
+              - offers LIFO approach   
+
+
+    Set<E> Interface 
+    ---------------------
+        - Set interface models a collection of object that doesn't allow duplicate elements 
+        - whenever we add a new element, it first compares the element with all objects (using their equals() and hashCode() ) in the set, 
+            if it doesn't exisit then only the new element will be added 
+        - Note: if you create a set of custom objects, make sure you implement the hashCode() and equals() methods correctly 
+        - Set Implementation classes -- 
+
+            1. HashSet<E> 
+                - doesn't guarantee order of insertion 
+                - internally uses 'HashTable' structure 
+
+            2. LinkedHashSet<E> 
+                - stores elements as per the insertion order 
+                - uses 'HashTable+double linked list' data strcuture 
+            
+            3. TreeSet<E> 
+                - maintains the sorted order of elements 
+                - uses 'balanced tree' data structure 
+
+
+     Queue<E> Interface 
+     ---------------------
+        - FIFO approach 
+        - it models a collection in the form of a queue that has FIFO approach 
+
+                |       |       |       |       |       |       |
+
+
+
+    hashCode()
+        - its an integer number represening the object; 
+        - The default implementation of the hashCode method is provided by the Object class, 
+                which returns a unique integer value for each object based on its memory address.
+
+
+    equals() and hashCode() contract 
+    -----------------------------------
+        - if two objects are equal to each other based on equals() method, 
+                then the hash code must be the same
+        - unequal objects may have the same hashCode
+
+
+    Natural Ordering 
+    ---------------------
+        - natural ordering is the default ordering of elements while sorting in array / collection 
+        - if you create a collection of custom objects, and want them sorted, then you must define 
+            the natural ordering of the elements 
+
+        - using below two interfaces we can define natural ordering of custom objects 
+        - 1.  interface Comparable
+
+                    interface Comparable<E> {
+                        int compareTo(E obj);
+                    }
+
+                    class Student implemets Comparable<Student> {
+                        //
+                        //
+                        int marks;
+
+                        public int compareTo(Student otherStudent){
+                            
+                            //return a compare value
+                            if(this.marks > otherStudent.marks)
+                                return 1;
+                            else if (this.marks == otherStudent.marks)
+                                return 0;
+                            else 
+                                return -1;
+                        }
+                    }
+
+        - 2.  interface Comparator
+                - this is used to create external comparators 
+
+
+                public class StudentNameComparator implements Comparator<Student>{
+
+                    public int compare(Student s1, Student s2){
+                            //logic to return a compare value
+                    }
+                }
+    
+
+    **Compare Value 
+        - its an integer number 
+
+            
+            e1.compareTo(e2)
+            if first object is > second object         : return 1 or positive number 
+            if first object is < second object         : return -1 or negative number 
+            if both are equal                          : return 0
+
+
+   
+    Create a list 
+    ------------------
+
+        - non-generic list 
+
+            ArrayList list = new ArrayList();
+            List list = new ArrayList();
+            List list =  new LinkedList();
+
+        - generic list 
+
+            ArrayList<Integer> list = new ArrayList<>();
+            List<String> listNames = new ArrayList<>();
+
+            List<Integer> list = new LinkedList<>();
+
+
+
+    Create a Set
+
+            Set set = new HashSet();
+            Set<Integer> set = new HashSet();
+
+
+
+
+
+
+
+
+
+
+     List list = new ArrayLists()
+     ArrayList list = new ArrayList();
+
+
+    ArrayList
+    ------------
+        - ArrayList is one of the implementation class of List Interface 
+        - used to list of objects 
+        - the initial capacity of arraylist is 10
+
+        ArrayList list = new ArrayList();
+        list.add(10);
+        list.add(30);
+        list.add(40);
+        list.add(60);
+
+
+
+
+
+    Enumerator, Iterator, ListIterator  
+    -------------------------------------
+        Iterator 
+            - common object for iterating over any type of collection i.e list, set, queue etc. 
+            - allows to iterate collection only in forward direction 
+
+        ListIterator 
+            - specific to Lists, used to iterator over lists 
+            - has next() and previous() methods, which allow to iterate in both directions 
+
+        
+        Enumeration 
+            - this is also used to iterate over collection 
+            - Collections.enumeration(collection) creates the enumerator 
+
+
+
+        Queue<E> Interface methods 
+        -----------------------------
+
+            insert the element                  add(E e)                    offer(E e)
+
+            remove the element                  remove()                    poll()
+
+            inspect / fetch the element         element()                   peek()
+
+
+        Deque<E> Interface 
+            - represents a double headed queue 
+
+            insert the element                  add(E e)                    offer(E e)
+                                                addFirst(E e)               offerFirst(E e)
+
+            remove the element                  remove()                    poll()
+                                                removeFirst()               pollFirst()
+
+            inspect / fetch the element         element()                   peek()
+                                                peekFirst()                 peekLast()
+
+
+       BlockingQueue<E> Interface methods 
+        -----------------------------
+
+            insert the element                  add(E e)                    offer(E e)          put(E e)
+
+            remove the element                  remove()                    poll()              take()
+
+            inspect / fetch the element         element()                   peek()
+
+
+        
+        Map<K, V> Interface 
+        --------------------
+            - models a collection of elements of objects in the form of key-value pairs 
+            - the key can be of any type, the value also can be of any type 
+            - cannot have duplicate key, all the keys should be unique 
+
+            - Map implementation classes are... 
+
+                1. HashTable<K,V>
+                        - doesn't allow null key 
+                        - synchronized
+
+                2. HashMap<K,V>
+                        - allows one null key 
+                        - not synchronized
+
+                3. LinkedHashMap<K,V> 
+                        - maintains order of insertion by keys 
+                
+                4. TreeMap<K,V>
+                        - maintains sorted order of keys based on their natural ordering 
+
+
+            Map<Integer, String> map = new HashMap<>()
+            Map<Integer, String> map = new LinkedHashMap<>()
+            Map<Integer, String> map = new TreeMap<>()
+
+
+        Iterate over a Map 
+        -----------------------
+
+                Collection<T> values()
+
+                Set<K> keySet();
+
+                entrySet()
+
+
+    Exception Handling 
+    ----------------------
+        - exception is an abnormal event that might occur during the program execution 
+
+
+            - Compile time errors 
+                    - invalid code syntax 
+                    - invalid variables 
+                    - incomplete types 
+                    - misspelling 
+
+            - Expcetion
+                - abnormal event that occurs at run time 
+                    i.e. input is invalid, code logic is incorrect, file/db connection fails, dependencies fails etc. 
+
+
+            - Java allows to handle such exceptions and do the needful as corrective steps 
+
+            - to handle the exception 
+                1. find the problem - hit the exception 
+                2. inform that the problem has occured - throw the exception
+                3. receive the information about the problem - catch the exception 
+                4. take corrective actions - handle the exception  
+
+        Exception class hierarchy
+        ------------------------------
+
+                    Throwable 
+                       |
+        ---------------------------------------------------------------
+        Exception                                                   Error 
+            |                                                        |
+            |->represents the issues occured at run-time             |-> represents internal system errors (Memory errors, virtual machine error)
+            |                                                        |-> LinkageError
+            |
+    ---------------------------------------------------------------------------
+    RuntimeException                IOExeption          SQLException        EmployeeNotFoundException
+      |
+    ArithmaticException
+    InputMismatchException
+    ArrayIndexOutofBoundExpception 
+    NullPointerException 
+    IllegalStateException 
+
+
+    ** Default exception handler 
+        - If run-time system searches all the methods on call stack and couldn’t have find the appropriate handler 
+            then run-time system handover the Exception Object to default exception handler, which is part of run-time system.
+            This default handler prints exception class name, exception description and stacktrace and terminates program abnormally.
+
+
+    Unchecked Expcetions 
+        - not necessarily handled by try-catch block 
+        - if there is no handler found, these exception are handled by the "default exception handler"
+        - all the "RunTimeExceptions" are unchecked 
+
+    Checked Expceptions 
+        - must be handled by writing try-catch block or they can be declared to be thrown
+
+
+        Below concepts are used to handle the exception 
+        --------------------------------------------------
+            - try-catch block
+            - 'throws' keyword 
+            - 'throw' keyword 
+            - 'finally' keyword 
+            - try with resources block (introduced in java7)
+                - you can use try with resource block only for 'Closable' resources 
+            - creating custom exception classes 
+
+
+
+                try {
+                    //make a connection to the db 
+
+                    //perform some db related oprations here..
+                    //the code to be monitored 
+
+                   
+
+                }catch(XYZException ex){
+
+                }catch(PQRException ex){
+
+                }finally{
+                     //once the operations are done, close the connection
+                     //release the resources 
+                }
+
+
+
+                try(open the connection to db / file / etc){
+
+                }catch(Exception ex){
+
+                }
+
+
+
+
+
+    Multi Threading 
+    ----------------
+        - every java program runs inside a thread, i.e. Main Thread 
+
+        There are three ways to create a thread 
+
+        1. using the Thread class 
+            a.  create a custom class that extends the Thread class 
+
+                    class MyThread extends Thread {
+
+                    }
+
+            b. override the 'run()' method to define the task you want to execute in the thread 
+
+                    class MyThread extends Thread {
+
+                        public void run(){
+                            //code to be executed inside a thread.
+                        }
+                    }     
+            c. start the thread 
+                 calling the 'start()' method on the thread object       
+
+        2. using the Runnable interface 
+
+            a. create a class that implements Runnable interface & override the 'run()' method to define the task you want to execute in the thread 
+                - this class just represents the code that is supposed to be executed inside a thread 
+
+                    class MyTask implements Runnable {
+                        public void run(){
+                            //code to be executed inside a thread.
+                        }
+                    }
+
+            b. Create a Thread Object, initialize the runnable task and start the tread 
+                    MyTask task1 = new MyTask();
+                    Thread t1 = new Thread(task1);
+
+
+
+
+
+        How to pause a thrad 
+            - Thread.sleep() method 
+
+        How to interrupt a thread 
+            - Thread.interupt(); 
+
+        how to make a thread wait for another thread 
+            - .join() method 
+
+
+        Thread synchronization 
+        --------------------------
+            - implement synchronization
+                = 1. using the ReentrantLock object (old technique)
+                = 2. making the methods synchronized
+
+
+        Thread DeadLock 
+        ----------
+
+            class A {
+
+                synchronized void methodA() {
+                    B.methoB()
+                }
+            }
+
+
+            class B {
+               synchronized void methodB() {
+                    A.methodA();
+                } 
+            }
+
+        3. Creating threads and executing multiple tasks using "Concurrent API" 
+
+                   1. java.util.concurrent package 
+                        **- provides the utility classes commonly useful in concurrent programming 
+                            i.e. Executors 
+
+                   2. java.util.concurrent.locks package 
+                        - provides Lock and Condition implementations 
+
+                   3. java.util.concurrent.atomic package  
+                        - provides some data types i.e. AtomicInteger 
+
+
+
+            java.util.concurrent
+            ---------------------------
+                    - provides utility classes that are used to create "thread pools" 
+                    - instead of creating a new thread whenever a task arrives / every time, 
+                            you can use a thread pool which keeps a number of reusable threads ready for executing the task 
+                    - the "Executors" provides various methods to create a pool of threads 
+
+                    1. Executor 
+
+                    2. ExecutorService 
+
+                    3. ScheduledExecutorService 
+
+
+
+                methods to create thread pools 
+                -------------------------------
+                    1. newSingleThreadExecutor()
+                    2. newFixedThreadPool(0)
+
+
+
+            <T> Future<T>	submit(Callable<T> task)
+                - Submits a value-returning task for execution and returns a Future representing the pending results of the task
+
+
+        Future interface: 
+        -------------------
+            - it is an interface, 
+            - A Future represents the result of an asynchronous computation 
+
+                    interface Future<V>{
+                        V	get()
+                            // Waits if necessary for the computation to complete, and then retrieves its result.
+                        V	get(long timeout, TimeUnit unit)
+                            //Waits if necessary for at most the given time for the computation to complete, and then retrieves its result, if available.
+                    }
+
+        Callable interface 
+        ------------------
+            - public interface Callable<V>
+                    - A task that returns a result and may throw an exception
+                    - override the V call() method 
+
+        //class B represents a Callable task - a task that can be executed inside a thread, and it may return a value or throw exception
+        class B implements Callable<V> {
+                //override 
+                public V call(){
+                    //perfom some async task 
+                    //calculate some values
+                    return a value V;
+                }
+        }
+
+        B taskB = new B();
+
+
+
+        //class A represents a runnable task - a task that can be executed inside a thread 
+        class A implements Runnable {
+                //override 
+                public void run(){
+
+                }
+        }
+
+        ExecutorService poolService = Executors.newSingleThreadExecutor();
+        poolService.execute(Runnable target)
+        poolService.submit(Callable target)
+
+        Future<V> futValue =  poolService.submit(taskB);          //internaly this method uses a thread from the pool, and executes the taskB
+        V value  = futValue.get(5, TimeUnit.SECONDS);
+        V value  = futValue.get();
+
+
+
+
+
+
+                        Executor<T> interface 
+                            |
+                            |-> void execute(Runnable target)
+                            |
+                        ExecutorService<T> interface 
+                            |
+                            |-> void execute(Runnable target)
+                            |-> Future<V> submit(Callable target)
+                            |-> shutdown()
+                            |-> isDone()
+                            |
+                        SchelduledExecutorService<T> interface 
+                            |
+                            |-> ScheduledFuture<?>	schedule(Runnable command, long delay, TimeUnit unit)
+                            |-> ScheduledFuture<?>	scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)
+                            |-> ScheduledFuture<V>	schedule(Callable<V> callable, long delay, TimeUnit unit)
+
+
+        JDBC 
+        ------------
+            - java database connectivity 
+            - jdbc is just a specification or standard that every db vendor has to implement 
+            - every DB Vendor generally provides "driver" to communicate with the database 
+            - to use the MySQL Database you have to first download the 'mysql-sql-driver'
+
+
+            - Driver class 
+                - responsible to communiate with the respective database 
+
+
+            db                          Driver class name                   url 
+            mysql                       com.mysql.cj.jdbc.Driver            jdbc:mysql://localhost:3306/mydb
+            oracle                          
+            ms sql server 
+            h2 
+            ..
+            ..
+
+
+            DriverManager class 
+                - used to create the "Connection" with the database 
+
+            Connection object 
+                - Connection object represents the connection to the db and used to send sql commands to the databse 
+
+            Statement Object 
+                - using the Connection object, we can create 'Statement' objects 
+                - using the 'statement' object we can submit the sql commands / sql queries to the db 
+
+                    1. Statement 
+                            connection.createStatement()
+
+                    2. PreparedStatement 
+                            connection.prepareStatement()
+
+                    3. Callable Statement 
+                            connection.callStatement();
+
+
+
+        Steps to connect / communicate with the database 
+
+            1. load the db drivers 
+
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+
+            2. create Connection with the db 
+
+                      Connection connection =  DriverManager.getConnection("urlOfTheDb","username","password");
+
+            3. create the Statement object 
+
+                          Statement statement =  connection.createStatement();
+
+            4. execute the sql commands / submit the sql queries to the db 
+
+                            int executeUpdate(String query)
+                                - submits the sql statement to the db, and returns an int value that represents the number of rows affected 
+                                - used to INSERT, UPDATE and DELETE 
+
+                            statement.executeResult()
+
+                            statement.execute();
+
+            5. close the connection 
+
+                    connection.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    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
+
+
+
+
+
+   
+ 
